@@ -2,7 +2,7 @@
 
 **Your context. Your rules. Any AI.**
 
-A portable, user-owned context layer for AI. Your preferences, facts, and constraints travel with you across ChatGPT, Claude, Cursor, and whatever comes next.
+A portable, user-owned context layer for AI. Your preferences, facts, and constraints travel with you — across ChatGPT, Claude, Cursor, and whatever comes next.
 
 ## The Problem
 
@@ -20,13 +20,15 @@ You have no portable identity across any of them. Every tool switch = start from
 
 ### Core Principles
 
-1. **User-owned** — the store lives on your machine
+1. **User-owned** — the store lives on your machine (`~/.context-passport/store.json`)
 2. **Declared vs Inferred** — what you say is authoritative; what a model guesses is marked, timestamped, and expires
 3. **Revocable** — tombstones propagate; "forget this" actually means forget
 4. **Scoped** — read vs readwrite grants per key
 5. **Portable** — one JSON file, importable anywhere
+6. ## See It Work
 
-## Install
+One command proves all four tools end-to-end:
 
 ```bash
 npm install
+node demo.js
