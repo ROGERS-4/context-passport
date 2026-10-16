@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { homedir } from "node:os";
-import { join, dirname } from "node:path";
+import { join } from "node:path";
 
 const STORE_DIR = join(homedir(), ".context-passport");
 const STORE_PATH = join(STORE_DIR, "store.json");
@@ -28,15 +28,22 @@ export async function writeStore(store) {
 }
 
 export function queryContext(store, key) {
-  const declared = dig(store.user.declared, key);
-  const inferred = dig(store.user.inferred, key);
+  const declared = lookup(store.user.declared, key);
+  const inferred = lookup(store.user.inferred, key);
   const tombstoned = store.tombstones.some((t) => t.key === key);
   return { key, declared: declared ?? null, inferred: inferred ?? null, tombstoned };
 }
 
+function lookup(obj, key) {
+  if (!obj) return undefined;
+  if (obj[key] !== undefined) return obj[key];
+  return dig(obj, key);
+}
+
 export function declareFact(store, key, value, scope = "read") {
   store.user.declared[key] = {
-    value, scope,
+    value,
+    scope,
     created: new Date().toISOString(),
     source: "user",
   };
@@ -46,7 +53,10 @@ export function declareFact(store, key, value, scope = "read") {
 export function inferFact(store, key, value, confidence, provenance, ttlDays = 30) {
   const expires = new Date(Date.now() + ttlDays * 86400000).toISOString();
   store.user.inferred[key] = {
-    value, confidence, provenance, expires,
+    value,
+    confidence,
+    provenance,
+    expires,
     created: new Date().toISOString(),
     source: "model",
   };
