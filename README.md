@@ -2,7 +2,7 @@
 
 **Your context. Your rules. Any AI.**
 
-A portable, user-owned context layer for AI. Your preferences, facts, and constraints travel with you — across ChatGPT, Claude, Cursor, phones, and whatever comes next.
+A portable, user-owned context layer for AI. Your preferences, facts, and constraints travel with you across ChatGPT, Claude, Cursor, phones, and whatever comes next.
 
 ## The Problem
 
@@ -29,7 +29,7 @@ You have no portable identity across any of them. Every tool switch = start from
 
 ### Why the store lives outside the repo
 
-`~/.context-passport/store.json` is deliberately **not** part of the git repo. Your context is personal data, not source code. The repo is the protocol — the store is yours. This also means the passport travels with your machine, not with any project, and won't accidentally get committed or shared.
+`~/.context-passport/store.json` is deliberately **not** part of the git repo. Your context is personal data, not source code. The repo is the protocol the store is yours. This also means the passport travels with your machine, not with any project, and won't accidentally get committed or shared.
 
 ## See It Work
 
