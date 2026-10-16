@@ -25,7 +25,12 @@ You have no portable identity across any of them. Every tool switch = start from
 3. **Revocable** — tombstones propagate; "forget this" actually means forget
 4. **Scoped** — read vs readwrite grants per key
 5. **Portable** — one JSON file, importable anywhere
-6. ## See It Work
+
+### Why the store lives outside the repo
+
+`~/.context-passport/store.json` is deliberately **not** part of the git repo. Your context is personal data, not source code. The repo is the protocol — the store is yours. This also means the passport travels with your machine, not with any project, and won't accidentally get committed or shared.
+
+## See It Work
 
 One command proves all four tools end-to-end:
 
