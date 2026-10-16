@@ -1,12 +1,16 @@
 {
   "name": "@context-passport/mcp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Your context. Your rules. Any AI.",
   "type": "module",
-  "bin": { "context-passport-mcp": "./src/server.js" },
+  "bin": {
+    "context-passport-mcp": "./src/server.js",
+    "context-passport-http": "./src/server-http.js"
+  },
   "main": "./src/server.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "start:http": "node src/server-http.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
