@@ -2,7 +2,7 @@
 
 **Your context. Your rules. Any AI.**
 
-A portable, user-owned context layer for AI. Your preferences, facts, and constraints travel with you — across ChatGPT, Claude, Cursor, and whatever comes next.
+A portable, user-owned context layer for AI. Your preferences, facts, and constraints travel with you — across ChatGPT, Claude, Cursor, phones, and whatever comes next.
 
 ## The Problem
 
@@ -16,7 +16,7 @@ You have no portable identity across any of them. Every tool switch = start from
 
 ## The Fix
 
-`context-passport` is an open MCP server that holds your context in a file **you own**, and exposes it to any MCP-enabled AI.
+`context-passport` is an open MCP server that holds your context in a file **you own**, and exposes it to any MCP-enabled AI — desktop or mobile.
 
 ### Core Principles
 
@@ -25,6 +25,7 @@ You have no portable identity across any of them. Every tool switch = start from
 3. **Revocable** — tombstones propagate; "forget this" actually means forget
 4. **Scoped** — read vs readwrite grants per key
 5. **Portable** — one JSON file, importable anywhere
+6. **Two transports** — stdio for desktop, HTTP for mobile and remote
 
 ### Why the store lives outside the repo
 
